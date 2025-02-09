@@ -45,13 +45,14 @@
     "url": "git+https://github.com/ducktors/turborepo-remote-cache.git"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.744.0",
+    "@aws-sdk/lib-storage": "^3.744.0",
     "@azure/storage-blob": "^12.23.0",
     "@fastify/aws-lambda": "^5.0.0",
     "@google-cloud/storage": "6.9.2",
     "@hapi/boom": "10.0.0",
     "@sinclair/typebox": "0.25.21",
     "ajv": "8.12.0",
-    "aws-sdk": "2.1310.0",
     "close-with-grace": "1.1.0",
     "env-schema": "5.2.0",
     "fastify": "5.1.0",
@@ -59,8 +60,7 @@
     "fs-blob-store": "6.0.0",
     "hyperid": "3.1.1",
     "pino": "^9.5.0",
-    "pino-pretty": "^13.0.0",
-    "s3-blob-store": "4.1.1"
+    "pino-pretty": "^13.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.2.2",
@@ -107,5 +107,6 @@
     "api",
     "dist",
     "vercel.json"
-  ]
+  ],
+  "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
 }
