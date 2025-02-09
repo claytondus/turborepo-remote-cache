@@ -1,12 +1,12 @@
+import { PassThrough, Readable } from 'node:stream'
 import {
   GetObjectCommand,
   HeadObjectCommand,
   S3Client,
   S3ClientConfig,
 } from '@aws-sdk/client-s3'
-import { StorageProvider } from './index.js'
-import { PassThrough, Readable } from 'node:stream'
 import { Upload } from '@aws-sdk/lib-storage'
+import { StorageProvider } from './index.js'
 
 export interface S3Options {
   accessKey?: string
