@@ -2,6 +2,7 @@ import { PassThrough, Readable } from 'node:stream'
 import {
   GetObjectCommand,
   HeadObjectCommand,
+  NotFound,
   S3Client,
   S3ClientConfig,
 } from '@aws-sdk/client-s3'
@@ -53,9 +54,15 @@ export function createS3({
             Key: artifactPath,
           }),
         )
-        .then((output) => {
-          cb(null, output.$metadata.httpStatusCode !== 404)
-        }, cb)
+        .then(
+          () => {
+            cb(null, true)
+          },
+          (err) => {
+            if (err instanceof NotFound) return cb(null, false)
+            cb(err, !err)
+          },
+        )
     },
     createReadStream(artifactPath) {
       const stream = new PassThrough()
