@@ -15,7 +15,7 @@ const testEnv = {
   STORAGE_PATH: 'turborepo-remote-cache-test',
   AWS_ACCESS_KEY_ID: 'S3RVER',
   AWS_SECRET_ACCESS_KEY: 'S3RVER',
-  AWS_REGION: '',
+  AWS_REGION: 'us-east-1',
   S3_ENDPOINT: 'http://localhost:4567',
 }
 Object.assign(process.env, testEnv)

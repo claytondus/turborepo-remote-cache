@@ -74,7 +74,7 @@ function createStorageLocation<Provider extends STORAGE_PROVIDERS>(
         region,
         endpoint,
         s3OptionsPassthrough: {
-          s3ForcePathStyle: true,
+          forcePathStyle: true,
         },
       })
     }

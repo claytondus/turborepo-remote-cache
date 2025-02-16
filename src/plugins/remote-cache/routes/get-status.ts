@@ -4,7 +4,6 @@ import type {
   RawRequestDefaultExpression,
   RouteOptions,
 } from 'fastify'
-import packageJson from '../../../../package.json'
 import { type Params, type Querystring } from './schema.js'
 import { statusRouteSchema } from './status-schema.js'
 
@@ -24,7 +23,7 @@ export const getStatus: RouteOptions<
   async handler(req, reply) {
     reply.send({
       status: 'enabled',
-      version: packageJson.version,
+      version: process.env.npm_package_version ?? 'unknown',
     })
   },
 }
