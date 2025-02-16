@@ -35,7 +35,7 @@ test('should throw without mandatory env vars', async (t) => {
     (err) => {
       if (err instanceof Error) {
         assert.strictEqual(err.name, 'Error')
-        assert.strictEqual(err.message, 'S3BlobStore bucket option required')
+        assert.strictEqual(err.message, 'The STORAGE_PATH environment variable is required for S3')
         return true
       } else {
         return false

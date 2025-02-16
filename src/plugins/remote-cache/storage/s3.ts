@@ -27,6 +27,11 @@ export function createS3({
   endpoint,
   s3OptionsPassthrough = {},
 }: S3Options): StorageProvider {
+
+  if (!bucket) {
+    throw new Error('The STORAGE_PATH environment variable is required for S3')
+  }
+
   const client = new S3Client({
     ...(accessKey && secretKey
       ? {
@@ -90,6 +95,12 @@ export function createS3({
           Body: stream,
         },
       }).done()
+        .then((val) => {
+          stream.emit('finish', val);
+        })
+        .catch((err) => {
+          stream.emit('error', err);
+        });
       return stream
     },
   }
